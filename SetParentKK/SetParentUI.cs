@@ -31,6 +31,7 @@ namespace SetParentKK
 
 		private void InitCanvas()
 		{
+			BepInEx.Logger.Log(BepInEx.Logging.LogLevel.Debug, "InitCanvas called");
 			if (GazeControl.Value)
 			{
 				VRTK_UIPointer vrtk_UIPointer = cameraEye.AddComponent<VRTK_UIPointer>();
@@ -66,8 +67,14 @@ namespace SetParentKK
 			////////////////
 			//Populate right side floating menu with buttons
 			////////////////
+			BepInEx.Logger.Log(BepInEx.Logging.LogLevel.Debug, "InitCanvas called 2");
 			txtMaleLeftFoot = CreateButton("男の左足固定", new Vector3(-26f, -26f, 0f), () => PushLimbButton(LimbName.MaleLeftFoot, txtMaleLeftFoot, "男の左足解除", "男の左足固定"), objRightMenuCanvas);
 			txtMaleRightFoot = CreateButton("男の右足固定", new Vector3(26f, -26f, 0f), () => PushLimbButton(LimbName.MaleRightFoot, txtMaleRightFoot, "男の右足解除", "男の右足固定"), objRightMenuCanvas);
+
+			// txtMaleLeftFoot = CreateButton("test1_khs_f_14", new Vector3(-26f, -26f, 0f), () => StartCoroutine(ChangeMotion("h/anim/female/02_00_00.unity3d", "khs_f_14")), objRightMenuCanvas);
+			// txtMaleRightFoot = CreateButton("test2_khs_f_n13", new Vector3(26f, -26f, 0f), () => StartCoroutine(ChangeMotion("h/anim/female/02_00_00.unity3d", "khs_f_n13")), objRightMenuCanvas);
+			BepInEx.Logger.Log(BepInEx.Logging.LogLevel.Debug, "InitCanvas called 3");
+
 			CreateButton("女左足固定/解除", new Vector3(-26f, -13f, 0f), () => FixLimbToggle(limbs[(int)LimbName.FemaleLeftFoot], true), objRightMenuCanvas);
 			CreateButton("女右足固定/解除", new Vector3(26f, -13f, 0f), () => FixLimbToggle(limbs[(int)LimbName.FemaleRightFoot], true), objRightMenuCanvas);
 			CreateButton("女左手固定/解除", new Vector3(-26f, 0f, 0f), () => FixLimbToggle(limbs[(int)LimbName.FemaleLeftHand], true), objRightMenuCanvas);
@@ -161,6 +168,8 @@ namespace SetParentKK
 			point.Normalize();
 			canvasLeft.transform.position = new Vector3(femaleAim.transform.position.x, cameraEye.transform.position.y - 0.4f, femaleAim.transform.position.z) + Quaternion.Euler(0f, -90f, 0f) * point * 1.5f;
 			canvasLeft.transform.forward = (canvasLeft.transform.position - cameraEye.transform.position).normalized;
+
+			BepInEx.Logger.Log(BepInEx.Logging.LogLevel.Debug, "InitCanvas called Done");
 		}
 
 		private Text CreateButton(string buttonText, Vector3 localPosition, UnityAction action, GameObject parentObject)

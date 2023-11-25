@@ -31,6 +31,7 @@ namespace SetParentKK
 					Destroy(this);
 				}
 			}
+			BepInEx.Logger.Log(BepInEx.Logging.LogLevel.Debug, "SetParent.cs Start() initiated");
 			femaleExists = false;
 			hideCanvas = MenuHideDefault.Value;
 
@@ -203,6 +204,8 @@ namespace SetParentKK
 				for (LimbName i = LimbName.MaleLeftFoot; i <= LimbName.MaleRightFoot; i++)
 					SetLimbColliders(i);
 			}			
+
+			BepInEx.Logger.Log(BepInEx.Logging.LogLevel.Debug, "SetParent.cs Start() completed");
 		}		
 
 		public void LateUpdate()
@@ -235,12 +238,14 @@ namespace SetParentKK
 					hideCount += Time.deltaTime;
 					if (hideCount >= 1f)
 					{
+						BepInEx.Logger.Log(BepInEx.Logging.LogLevel.Debug, "SetParent.cs LateUpdate() hideCount >= 1f");
 						hideCanvas = !hideCanvas;
 						hideCount = 0f;
 					}
 				}
 				else
 				{
+					BepInEx.Logger.Log(BepInEx.Logging.LogLevel.Debug, "SetParent.cs LateUpdate() hideCount = 0f");
 					hideCount = 0f;
 				}
 

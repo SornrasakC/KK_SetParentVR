@@ -67,6 +67,12 @@
     <Reference Include="UnityEngine.UI">
       <HintPath>..\lib\UnityEngine.UI.dll</HintPath>
     </Reference>
+    <!-- <Reference Include="BepInEx.BepIn4Patcher">
+      <HintPath>..\lib\BepInEx.BepIn4Patcher.dll</HintPath>
+    </Reference> -->
+    <Reference Include="KoikatuVRAssistPlugin">
+      <HintPath>..\lib\KoikatuVRAssistPlugin.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

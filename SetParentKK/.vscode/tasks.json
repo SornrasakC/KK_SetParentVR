@@ -1,0 +1,35 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Custom SPVR: build debug",
+            "type": "shell",
+            "command": "msbuild",
+            "args": [
+                "/property:Configuration=Debug",
+                "/property:Platform=AnyCPU",
+                "SetParentKK.csproj"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Custom SPVR: build release",
+            "type": "shell",
+            "command": "msbuild",
+            "args": [
+                "/property:Configuration=Release",
+                "/property:Platform=AnyCPU",
+                "SetParentKK.csproj"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}
